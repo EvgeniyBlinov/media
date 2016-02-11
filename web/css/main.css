@@ -36,3 +36,19 @@ body {
     width: 10em;
     margin: 2em 2em;
 }
+
+.btn-volume-up {
+    background-color: #96ba02;
+}
+.btn-key-left {
+    background-color: #9D449A;
+}
+.btn-key-right {
+    background-color: #15989A;
+}
+
+.btn-volume-down {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+}
