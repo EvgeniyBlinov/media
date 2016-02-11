@@ -1,0 +1,3 @@
+<?php
+
+defined('USER') or define('USER', 'user');

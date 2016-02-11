@@ -1,6 +1,7 @@
 <?php
 use lib\Config;
 
+require APP_ROOT_PATH . '/src/config/local.php';
 defined('APP_DEBUG') or define('APP_DEBUG', true);
 if (APP_DEBUG) {
     error_reporting(E_ALL & ~E_DEPRECATED);
