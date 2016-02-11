@@ -33,7 +33,7 @@ $app->group('/api/v1', function () use ($app) {
         $app->map('/space', function () use ($app) {
             $app->response->headers->set('Content-Type', 'application/json');
             $XAUTHORITY = 'export XAUTHORITY=/home/' . USER . '/.Xauthority; ';
-            $status = system($XAUTHORITY . 'export DISPLAY=:0.0; xdotool key space');
+            $status = system($XAUTHORITY . 'export DISPLAY=:0; xdotool key space');
             if ($status !== false) {
                 //$status = 200;
             } else {
