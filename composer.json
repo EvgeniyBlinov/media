@@ -1,0 +1,17 @@
+{
+    "name": "cent/media",
+    "description": "media remote control",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Blinov Evgeniy",
+            "email": "evgeniy_blinov@mail.ru"
+        }
+    ],
+    "require": {
+        "slim/slim": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    }
+}
