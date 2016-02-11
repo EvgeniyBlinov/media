@@ -35,9 +35,9 @@
             request('/api/v1/volume/down');
         });
 
-        $('#btn-key-space').click(function(event){
-            request('/api/v1/key/space');
-        });
+        $('#btn-key-space').click(function(event){ request('/api/v1/key/space'); });
+        $('#btn-key-left').click(function(event){ request('/api/v1/key/left'); });
+        $('#btn-key-right').click(function(event){ request('/api/v1/key/right'); });
     });
 
     return root;

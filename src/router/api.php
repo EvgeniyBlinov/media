@@ -1,5 +1,11 @@
 <?php
 use lib\ApiResponse;
+function xdotool($key)
+{
+    $user = defined('USER') ? constant('USER') : $_SERVER['USER'];
+    $XAUTHORITY = "export XAUTHORITY=/home/$user/.Xauthority; ";
+    return system("$XAUTHORITY export DISPLAY=:0; xdotool key $key");
+}
 ///*******************             router        ****************************/
 //set json Content-Type
 $app->group('/api/v1', function () use ($app) {
@@ -32,9 +38,29 @@ $app->group('/api/v1', function () use ($app) {
     $app->group('/key', function () use ($app) {
         $app->map('/space', function () use ($app) {
             $app->response->headers->set('Content-Type', 'application/json');
-            $user = defined('USER') ? constant('USER') : $_SERVER['USER'];
-            $XAUTHORITY = "export XAUTHORITY=/home/$user/.Xauthority; ";
-            $status = system($XAUTHORITY . 'export DISPLAY=:0; xdotool key space');
+            $status = xdotool('space');
+            if ($status !== false) {
+                $status = 200;
+            } else {
+                $status = 500;
+            }
+            $app->halt(200, (new ApiResponse(array(), array(compact('status')))));
+        })
+            ->via('GET');
+        $app->map('/left', function () use ($app) {
+            $app->response->headers->set('Content-Type', 'application/json');
+            $status = xdotool('Left');
+            if ($status !== false) {
+                $status = 200;
+            } else {
+                $status = 500;
+            }
+            $app->halt(200, (new ApiResponse(array(), array(compact('status')))));
+        })
+            ->via('GET');
+        $app->map('/right', function () use ($app) {
+            $app->response->headers->set('Content-Type', 'application/json');
+            $status = xdotool('Right');
             if ($status !== false) {
                 $status = 200;
             } else {

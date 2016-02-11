@@ -9,9 +9,17 @@
 </head>
 <body>
     <div class="container">
-        <input class="btn btn-success btn-responsive" id="btn-volume-down" type="button" value="Value Down">
-        <input class="btn btn-success btn-responsive" id="btn-volume-up" type="button" value="Value Up">
-        <input class="btn btn-success btn-responsive" id="btn-key-space" type="button" value="Space">
+        <div class="row">
+            <input class="btn btn-success btn-responsive" id="btn-volume-down" type="button" value="Value Down">
+            <input class="btn btn-success btn-responsive" id="btn-volume-up" type="button" value="Value Up">
+        </div>
+        <div class="row">
+            <input class="btn btn-success btn-responsive" id="btn-key-space" type="button" value="Space">
+        </div>
+        <div class="row">
+            <input class="btn btn-success btn-responsive" id="btn-key-left" type="button" value="Left">
+            <input class="btn btn-success btn-responsive" id="btn-key-right" type="button" value="Right">
+        </div>
     </div>
     <script src="js/jquery-1.12.0.min.js?<?= $revision ?>"></script>
     <script src="js/bootstrap.min.js?<?= $revision ?>"></script>
