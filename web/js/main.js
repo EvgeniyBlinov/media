@@ -16,9 +16,9 @@
     'use strict';
 
     $(document).ready(function(){
-        $('#btn-volume-down').click(function(event){
+        var request = function (url, method, params){
             $.ajax({
-                url: '/api/v1/volume/down',
+                url: url,
                 type: 'GET',
                 success: function (response) {
                     if (response && response.status && response.status == 200) {
@@ -26,18 +26,17 @@
                     }
                 }
             });
+        };
+        $('#btn-volume-down').click(function(event){
+            request('/api/v1/volume/down');
         });
 
         $('#btn-volume-up').click(function(event){
-            $.ajax({
-                url: '/api/v1/volume/up',
-                type: 'GET',
-                success: function (response) {
-                    if (response && response.status && response.status == 200) {
-                        console.log('response', response);
-                    }
-                }
-            });
+            request('/api/v1/volume/down');
+        });
+
+        $('#btn-key-space').click(function(event){
+            request('/api/v1/key/space');
         });
     });
 

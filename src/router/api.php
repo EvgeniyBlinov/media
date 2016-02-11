@@ -32,16 +32,14 @@ $app->group('/api/v1', function () use ($app) {
     $app->group('/key', function () use ($app) {
         $app->map('/space', function () use ($app) {
             $app->response->headers->set('Content-Type', 'application/json');
-            $XAUTHORITY = 'export XAUTHORITY=/home/' . USER . '/.Xauthority; ';
+            $user = defined('USER') ? constant('USER') : $_SERVER['USER'];
+            $XAUTHORITY = "export XAUTHORITY=/home/$user/.Xauthority; ";
             $status = system($XAUTHORITY . 'export DISPLAY=:0; xdotool key space');
             if ($status !== false) {
-                //$status = 200;
+                $status = 200;
             } else {
-                //$status = 500;
+                $status = 500;
             }
-                echo "<pre>";var_dump(
-                $status
-                );die;
             $app->halt(200, (new ApiResponse(array(), array(compact('status')))));
         })
             ->via('GET');

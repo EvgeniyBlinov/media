@@ -20,6 +20,7 @@ Config::$confArray = array(
     'init' => array(
         'debug'               => APP_DEBUG,
         'mode'                => 'production',
+        'templates.path'      => APP_ROOT_PATH . '/src/templates'
     ),
     'production' => array(
         'parameters' => array(

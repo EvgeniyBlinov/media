@@ -5,7 +5,9 @@
 
 $app->group('/', function () use ($app) {
     $app->map('/', function () use ($app) {
-        $app->halt(200, file_get_contents(APP_ROOT_PATH . '/src/templates/index.html'));
+        $revision = time();
+        $app->render('index.php', compact('revision'));
+        //$app->halt(200, file_get_contents(APP_ROOT_PATH . '/src/templates/index.html'));
     })
         ->via('GET');
 });
